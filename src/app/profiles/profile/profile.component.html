@@ -1,0 +1,27 @@
+<div class="rounded-lg text-white shadow-2xl bg-[#212121] w-96 overflow-hidden">
+    <div class="relative h-48 flex justify-center items-center">
+        <div class="absolute inset-0 w-full h-1/2  bg-blue-500"></div>
+        <img class="h-36 shadow-lg aspect-square rounded-full z-10" [src]="profile?.image | defaultImage">
+    </div>
+    <h1 class="text-3xl font-bold text-center ">
+        {{profile?.firstname}} {{profile?.lastname}}
+    </h1>
+    <h3 class="text-lg text-center text-gray-300">
+        {{profile?.job}}
+    </h3>
+    <div class="px-5 pb-5 text-center">
+        <p>
+            Age {{profile?.age}}
+        </p>
+        <p>
+            {{profile?.description}}
+        </p>
+    </div>
+    <div class="flex items-center justify-center py-5">
+        <button
+        (click)="hire()"
+        class="bg-blue-500 hover:bg-blue-600 transition-colors text-white px-5 py-2 rounded-full shadow-lg">
+            {{hiringService.isProfileHired(profile) ? 'Unhire' : 'Hire'}}
+        </button>
+    </div>
+</div>

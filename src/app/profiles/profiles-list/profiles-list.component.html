@@ -1,0 +1,5 @@
+<div class="flex flex-col gap-2">
+    <h1 class="text-3xl text-white font-medium">Profiles</h1>
+    <app-profile-card class="w-max" [isHoverable]="true" (click)="selectProfile(profile)" [profile]="profile"
+        *ngFor="let profile of profiles"></app-profile-card>
+</div>

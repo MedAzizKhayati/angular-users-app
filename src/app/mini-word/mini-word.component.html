@@ -1,0 +1,40 @@
+<div class="text-lg my-3 px-20">
+    <div class="flex gap-7 rounded-t relative items-end bg-[#212121] px-5 p-3">
+        <span class="flex flex-col gap-3 items-center">
+            <p class="text-white">Font Color</p>
+            <input [(ngModel)]="style.color" type="color" class="h-9 outline-none w-full cursor-pointer rounded">
+        </span>
+
+        <span class="flex flex-col gap-3 items-center">
+            <p class="text-white">Font Size</p>
+            <input [(ngModel)]="style.fontSizeTs" min="1" type="number"
+                class="h-9 p-2 outline-none w-16 cursor-pointer rounded">
+        </span>
+
+        <span class="flex flex-col gap-3 items-center">
+            <p class="text-white">Font Family</p>
+            <select [(ngModel)]="style.fontFamily" class="outline-none rounded px-3 h-9">
+                <option value="Arial">Arial</option>
+                <option value="Times New Roman">Times New Roman</option>
+                <option value="Courier New">Courier New</option>
+                <option value="Verdana">Verdana</option>
+                <option value="Georgia">Georgia</option>
+                <option value="Impact">Impact</option>
+                <option value="Tahoma">Tahoma</option>
+                <option value="Trebuchet MS">Trebuchet MS</option>
+                <option value="Palatino Linotype">Palatino Linotype</option>
+                <option value="Lucida Console">Lucida Console</option>
+            </select>
+        </span>
+
+        <span class="flex gap-3 items-center">
+            <input [(ngModel)]="isRainbowActive" type="checkbox"
+                class="p-2 h-6 w-6 outline-none cursor-pointer rounded">
+            <p class="text-white">Rainbow Colors</p>
+        </span>
+    </div>
+    <textarea [rainbowColor]="isRainbowActive" rows="10" [ngStyle]="style"
+        class="outline-none bg-[#313131] transition-colors duration-1000 text-white scrollbar-thumb-gray-900 scrollbar-thin scrollbar-track-white p-3 w-full resize-none rounded-b">
+
+    </textarea>
+</div>

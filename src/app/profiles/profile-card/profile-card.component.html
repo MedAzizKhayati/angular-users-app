@@ -1,0 +1,14 @@
+<div [ngClass]="{'hover:bg-[#323232] hover:scale-105 cursor-pointer': isHoverable }"
+    class="flex gap-5 transition-all items-center px-5 py-2 w-80 bg-[#212121] shadow-2xl rounded-lg">
+    <div class="rounded-full overflow-hidden aspect-square h-20">
+        <img [src]="profile?.image | defaultImage">
+    </div>
+    <div class="text-gray-300">
+        <p class="font-medium text-lg">{{profile?.firstname}} {{profile?.lastname}}</p>
+        <p class="text-sm">{{profile?.job}}</p>
+    </div>
+
+    <!-- Social media icons -->
+
+
+</div>
