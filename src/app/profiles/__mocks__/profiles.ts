@@ -8,15 +8,15 @@ export const JOBS = [
     "Sales",
     "Marketing",
 ]
-export const MOCKS_LENGTH = 6;
+export const MOCKS_LENGTH = 10;
 export const getMockProfiles = async (): Promise<Profile[]> => {
     return fetch(`https://randomuser.me/api/?results=${MOCKS_LENGTH}`).then(
         res => res.json()
     ).then(
         res => res.results.map(
-            (profile: any) => {
+            (profile: any, index: number) => {
                 return new Profile(
-                    profile.id.value,
+                    index.toString(),
                     profile.name.first,
                     profile.name.last,
                     profile.dob.age,

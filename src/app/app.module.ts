@@ -15,6 +15,10 @@ import { DefaultImagePipe } from './profiles/pipes/default-image.pipe';
 import { HiredListComponent } from './profiles/hired-list/hired-list.component';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NavbarComponent } from './navbar/navbar.component';
+import { AuthenticationComponent } from './authentication/authentication.component';
+import { AddProfileComponent } from './profiles/add-profile/add-profile.component';
+import { CyclingImageComponent } from './cycling-image/cycling-image.component';
 
 @NgModule({
   declarations: [
@@ -22,12 +26,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ColorPickerComponent,
     MiniWordComponent,
     RainbowColorDirective,
-    ProfilesComponent,
-    ProfilesListComponent,
-    ProfileComponent,
-    ProfileCardComponent,
     DefaultImagePipe,
     HiredListComponent,
+    NavbarComponent,
+    ProfilesComponent,
+    ProfileComponent,
+    ProfileCardComponent,
+    ProfilesListComponent,
+    AuthenticationComponent,
+    AddProfileComponent,
+    CyclingImageComponent
   ],
   imports: [
     BrowserModule,

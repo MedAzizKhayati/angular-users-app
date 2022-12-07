@@ -17,11 +17,16 @@
             {{profile?.description}}
         </p>
     </div>
-    <div class="flex items-center justify-center py-5">
-        <button
-        (click)="hire()"
-        class="bg-blue-500 hover:bg-blue-600 transition-colors text-white px-5 py-2 rounded-full shadow-lg">
+    <div class="flex items-center justify-center gap-3 py-5">
+        <button (click)="hire()"
+            class="bg-blue-500 hover:bg-blue-600 transition-colors text-white px-5 py-2 rounded-full shadow-lg">
             {{hiringService.isProfileHired(profile) ? 'Unhire' : 'Hire'}}
         </button>
+        <button 
+        (click)="delete()"
+        class="bg-red-500 hover:bg-red-600 transition-colors text-white px-5 py-2 rounded-full shadow-lg">
+            Delete
+        </button>
     </div>
+
 </div>

@@ -1,0 +1,45 @@
+<div>
+    <form #form="ngForm" (ngSubmit)="onSubmit(form.value)" class="p-5 flex flex-col gap-5 items-center text-white">
+        <h1 class="text-4xl font-bold underline m-1 mb-5">Add Profile</h1>
+        <input ngModel #firstName="ngModel" name="firstName" type="text" required placeholder="Type your first name."
+            class="w-full max-w-lg p-5 rounded outline-none bg-[#212121]" [ngClass]="
+            {
+                'border-2 border-red-500': firstName.invalid && firstName.touched
+            }">
+        <p class="text-red-400">
+            {{ (firstName.touched && firstName.invalid) ? "First Name is required." : ""}}
+        </p>
+
+        <input ngModel #lastName="ngModel" name="lastName" type="text" required placeholder="Type your last name."
+            class="w-full max-w-lg p-5 rounded outline-none bg-[#212121]" [ngClass]="
+            {
+                'border-2 border-red-500': lastName.invalid && lastName.touched
+            }">
+        <p class="text-red-400">
+            {{ (lastName.touched && lastName.invalid) ? "Last Name is required." : ""}}
+        </p>
+
+        <input ngModel #job="ngModel" name="job" type="text" required placeholder="What is your job?"
+            class="w-full max-w-lg p-5 rounded outline-none bg-[#212121]" [ngClass]="
+            {
+                'border-2 border-red-500': job.invalid && job.touched
+            }">
+        <p class="text-red-400">
+            {{ (job.touched && job.invalid) ? "Job is required." : ""}}
+        </p>
+
+        <input ngModel #age="ngModel" name="age" type="number" min="16" max="60" required
+            placeholder="Type your age." class="w-full max-w-lg p-5 rounded outline-none bg-[#212121]" [ngClass]="
+            {
+                'border-2 border-red-500': age.invalid && age.touched
+            }">
+        <p class="text-red-400">
+            {{ (age.touched && age.invalid) ? "age must be between 16 and 60." : ""}}
+        </p>
+
+        <button [disabled]="form.invalid" [ngClass]="{
+            'opacity-50 cursor-not-allowed': form.invalid
+        }" class="w-mFax px-7 py-4 rounded bg-green-800 hover:bg-green-900 transition-colors">Submit</button>
+        {{ form.invalid}}
+    </form>
+</div>

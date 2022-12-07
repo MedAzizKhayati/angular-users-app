@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { Profile } from '../models/profile.model';
 import { ProfileService } from '../profile.service';
 
@@ -9,22 +10,28 @@ import { ProfileService } from '../profile.service';
 })
 export class ProfilesListComponent implements OnInit {
 
+  private subscriptions: Subscription[] = [];
   profiles: Profile[] = [];
-  @Output() selectEvent = new EventEmitter<Profile>();
   constructor(
     profileService: ProfileService,
-    private toastr: ToastrService) {
-    profileService.getProfiles().then((profiles) => {
-      this.profiles = profiles;
+    private router: Router,
+  ) {
+    this.profiles = profileService.getProfiles();
+    const sub = profileService.invokeProfileChange.subscribe(() => {
+      this.profiles = profileService.getProfiles();
     });
+    this.subscriptions.push(sub);
   }
 
   selectProfile(profile: Profile | undefined) {
-    this.selectEvent.emit(profile);
-    this.toastr.success('Profile selected', "Success");
+    this.router.navigate(['/users', profile?.id]);
   }
 
   ngOnInit(): void {
+  }
+
+  ngOnDestroy() {
+    this.subscriptions.forEach(sub => sub.unsubscribe());
   }
 
 }
